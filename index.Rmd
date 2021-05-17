@@ -1,0 +1,16 @@
+---
+title: "index.Rmd"
+author: "Daniel Choi"
+date: "5/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+We decided to focus on COVID-19 as the topic for our final project because it is an extremely pertinent subject matter in the last year and has impacted each of us in unique ways. Some of us have experienced the pandemic in different areas than Seattle making this topic even more interesting to us. We are all fascinated by the ways that politics, geography, economics, etc intersect with the response to the COVID-19 pandemic. We decided to choose the Covid-19 World Vaccine Adverse Reactions dataset as our researching dataset.
+
+
