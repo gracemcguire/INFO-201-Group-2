@@ -6,9 +6,7 @@ x <- function(SEX, df) {
     summarise(SEX_male = sum(SEX == "M", na.rm = T),
            SEX_female = sum(SEX == "F", na.rm = T),
            SEX_unknown = sum(SEX == "U", na.rm = T),
-           AGE_max = max(AGE_YRS, na.rm = T),
-           AGE_min = min(AGE_YRS, na.rm = T),
-           AGE_avg = min(AGE_YRS, na.rm = T))
+           AGE_avg = mean(AGE_YRS, na.rm = T))
   return(y)
 }
 
