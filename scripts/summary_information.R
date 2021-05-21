@@ -13,6 +13,6 @@ summary_info <- function(ds) {
   return(ds_summary)
 }
 
-ds <- read.csv(file = '2021VAERSDATA.csv')
+ds <- read.csv(file = "2021VAERSDATA.csv")
 
 vaers_summary <- summary_info(ds)
