@@ -16,3 +16,4 @@ summary_info <- function(ds) {
 ds <- read.csv(file = '2021VAERSDATA.csv')
 
 vaers_summary <- summary_info(ds)
+vaers_summary
