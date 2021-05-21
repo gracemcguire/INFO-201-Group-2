@@ -39,7 +39,10 @@ features and `r summary_info$observations` participants.
 ## Table
 
 This table below shows us the gender of participants in each state, and the 
-average age of each participant.
+average age of each participant. We included this table as it reveals the sex, location, and the average age, which allows us to answer our question of research "Which age groups and genders were most impacted by COVID-19, and in which locations were they located in?" Through this table, we were able to gain further insight towards how our participants were impacted due to the
+COVID pandemic. I used the summarize function to find the sum of the male, female, and unknown
+genders. I also used the summarize function to find the average of each age.
+
 ```{r, echo=FALSE, warning = FALSE}
 # get table from scripts/Aggregate Table Script.R
 source("scripts/Aggregate Table Script.R")
@@ -50,11 +53,6 @@ kable(aggregate_info(vaers2021df)) %>%
            italic = FALSE)
 ```
 
-We included this table as it reveals the sex, location, and the average age, which
-allows us to answer our question of research "Which age groups and genders were most impacted
-by COVID-19, and in which locations were they located in?" Through this table, we
-were able to gain further insight towards how our participants were impacted due to the
-COVID pandemic.
 
 $$\\[.1in]$$
 
