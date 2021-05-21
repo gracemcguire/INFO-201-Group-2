@@ -12,4 +12,3 @@ summary_info <- function(ds) {
   #Average age
   return(ds_summary)
 }
-
