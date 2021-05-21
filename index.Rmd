@@ -1,16 +1,123 @@
 ---
 title: "index.Rmd"
-author: "Daniel Choi"
-date: "5/16/2021"
+author: "Daniel Choi & Renae Wong"
+date: "5/20/2021"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(kableExtra)
+
+vaers2021df <- read.csv("data/2021VAERSDATA.csv", stringsAsFactors = FALSE)
 ```
 
-## R Markdown
+## Introduction
 
-We decided to focus on COVID-19 as the topic for our final project because it is an extremely pertinent subject matter in the last year and has impacted each of us in unique ways. Some of us have experienced the pandemic in different areas than Seattle making this topic even more interesting to us. We are all fascinated by the ways that politics, geography, economics, etc intersect with the response to the COVID-19 pandemic. We decided to choose the Covid-19 World Vaccine Adverse Reactions dataset as our researching dataset.
+The COVID-19 Pandemic has changed many things. Due to the pandemic, many people
+have died, lost their jobs, and have been restricted from communicating and
+interacting in-person. We as a group wanted to explore what the specific
+aftermaths were of these issues. By analyzing and researching in depth of the relations
+of adversity the majority of people faced, we came to the conclusion of using this [dataset](https://www.kaggle.com/ayushggarg/covid19-vaccine-adverse-reactions?fbclid=IwAR2aQKWsmC7TMTk3TJ-hVX0Hnpl-ajPINOqKOU5wcDmxsgx8EeQXzIQ8smw).
+
+## Summary
+```{r, echo = FALSE, results=FALSE, warning = FALSE}
+# get summary information from scripts/summary_information.R
+source("scripts/summary_information.R")
+summary_info <- summary_info(vaers2021df)
+```
+
+In this data set, we hope to explore the different ways people were affected
+by COVID-19, by their location, gender, age, and number of days until they experienced
+adverse effects due to the COVID-19 or the COVID-19 vaccine. From this data set
+we were able to discover that there were `r summary_info$male_num` males and
+`r summary_info$female_num` females, with the average age in the data set
+being `r summary_info$avg_age`. In this dataset, there were `r summary_info$features`
+features and `r summary_info$observations` participants.
+
+## Table
+
+This table below shows us the gender of participants in each state, and the 
+average age of each participant.
+```{r, echo=FALSE, warning = FALSE}
+# get table from scripts/Aggregate Table Script.R
+source("scripts/Aggregate Table Script.R")
+kable(aggregate_info(vaers2021df)) %>%
+  kable_styling(full_width = FALSE, position = "center") %>%
+  column_spec(1, bold = TRUE, italic = TRUE) %>%
+  row_spec(1, bold = TRUE, background = "black", color = "white",
+           italic = FALSE)
+```
+
+We included this table as it reveals the sex, location, and the average age, which
+allows us to answer our question of research "Which age groups and genders were most impacted
+by COVID-19, and in which locations were they located in?" Through this table, we
+were able to gain further insight towards how our participants were impacted due to the
+COVID pandemic.
+
+$$\\[.1in]$$
+
+# Charts
+
+$$\\[.1in]$$
+
+## Chart 1
+```{r, echo = FALSE, warning = FALSE}
+## Chart 1
+# load first chart from script/chart_1.R
+source("scripts/chart_1.R")
+chart_1 <- chart_1(vaers2021df)
+chart_1
+```
+
+We used a scatter plot to measure the adverse effects of the COVID-19 
+for each state and separated the data to consider the gender of the participants
+and the age, where the red signifies the female, green signifies the male, and
+blue signifies the unknown gender. We included this chart in an attempt to seek
+the difference age, gender, or location would seem to have on people of the
+respective pool of research. This information/the chart itself reveals a scatter plot
+where each dot represents a single participant. Through this, we were able to
+answer our question of "How has COVID-19 impacted the people of different genders,
+location, and age."
 
 
+$$\\[.1in]$$
+
+## Chart 2
+```{r, echo=FALSE, warning = FALSE}
+## Chart 2
+# load first chart from script/chart_1.R
+source("scripts/chart_2.R")
+chart_2 <- chart_2(vaers2021df)
+chart_2
+```
+
+For Chart 2, we attempted to give the visual distribution of gender alone. We
+wanted to create a chart that would allow us and the users of this information
+to be given a clear and concise visual that would allow them to understand the
+overall distribution of males, females, and unknown genders that were recorded into
+the data set. We seeked to express our question of "What genders were included in
+this data set, and what was the general distribution of each gender?" The chart
+itself is a pie chart which reveals the distribution of each gender.
+
+$$\\[.1in]$$
+
+## Chart 3
+```{r, echo=FALSE, warning = FALSE}
+## Chart 3
+# load first chart from script/chart_1.R
+source("scripts/chart_3.R")
+chart_3 <- chart_3(vaers2021df)
+chart_3
+```
+
+For our last chart, we wanted to compare the relationship of age and how long it
+took for the side effects of the COVID-19 Vaccine to occur and how it differed
+between the ages of each participant. We decided that a bar graph which would show
+the distribution of each age category horizontally, along with the number of hours
+labeled vertically, would adequately display and answer our question of "How has the
+COVID-19 Vaccine affected the different age groups?" This information is shown below
+through a bar graph.
+
+$$\\[.1in]$$

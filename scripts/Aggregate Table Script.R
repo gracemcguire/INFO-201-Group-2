@@ -1,16 +1,17 @@
-h <- read.csv("2021VAERSDATA.csv", stringsAsFactors = F)
 
-x <- function(SEX, df) {
-  y <- df %>%
+library(dplyr)
+
+aggregate_info <- function(df) {
+  summ <- df %>%
     group_by(STATE) %>%
-    summarise(SEX_male = sum(SEX == "M", na.rm = T),
-           SEX_female = sum(SEX == "F", na.rm = T),
-           SEX_unknown = sum(SEX == "U", na.rm = T),
-           AGE_avg = mean(AGE_YRS, na.rm = T))
-  return(y)
+    summarise(Male = sum(SEX == "M", na.rm = T),
+              Female= sum(SEX == "F", na.rm = T),
+              Unknown = sum(SEX == "U", na.rm = T),
+              AverageAge = mean(AGE_YRS, na.rm = T))
+  colnames(summ) <- c("State", "Males", "Females", "Unknown", "Average Age")
+  return(summ)
 }
 
-v <- x("AGE", h)
 
 # We included the table so that the columns that we thought were important would
 # be displayed. The information reveals the columns obtaining the SEX, column
