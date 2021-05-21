@@ -5,7 +5,7 @@ chart_3 <- function(ds) {
     filter(NUMDAYS <= 400)
   chart_3 <- ggplot(numdays_clean) +
     geom_col(mapping = aes(x = CAGE_YR, y = NUMDAYS), color = "gray50") +
-    ggtitle("Number of Days for Adverse Effects to Occur vs. Age") +
+    ggtitle("Number of Days for the Adverse Effects to Occur vs. Age") +
     xlab("Age") +
     ylab("Number of Days for Adverse Effects to Occur")
   return(chart_3)
