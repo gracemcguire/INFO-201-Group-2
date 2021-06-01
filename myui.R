@@ -1,10 +1,10 @@
 vaers <- read.csv("data/2021VAERSDATA.csv")
 
 # Answers the Location and Death count
-# Data for first widget
-filter_blank_data <- vaers %>%
+# Data for first widget, gets rid of state XB and blanks.
+filter_error_data <- vaers %>%
   filter(!STATE %in% c("XB", ""))
-state_unique <- unique(a$STATE)
+state_unique <- unique(filter_error_data$STATE)
 
 # First widget
 state_check <- checkboxGroupInput(inputId = "States",
@@ -15,7 +15,7 @@ state_check <- checkboxGroupInput(inputId = "States",
 # Data for second widget
 grouped_data <- vaers %>%
   group_by(STATE) %>%
-  dplyr::summarize(count = n())
+  dplyr::summarize(count = n()) %>%
 count_range <- range(grouped_data$count)
 
 # Second widget sliderInput
