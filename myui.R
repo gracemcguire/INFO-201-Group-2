@@ -45,17 +45,18 @@ age_slider <- sliderInput(inputId = "age_affected",
                           step = 1)
 
 introduction_page <- tabPanel(
-  ("Introduction"),
-  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 700, height = 650),
-  h2(p("Authors: Daniel Choi, Grace McGuire, Renee Wong, Nathaniel Lee")),
-  h3(p("The questions we hope to answer are:")),
+  ("Introduction"), #title of page/tab
+  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 700, height = 650), #image insertion & scale
+  h2(p("Authors: Daniel Choi, Grace McGuire, Renee Wong, Nathaniel Lee")), #adds authors
+  h2(p("This project explores how age, gender, and location have impacted the way that American's have been experiencing adverse effects caused by the COVID-19 vaccine.")),
+  h3(p("The questions we hope to answer are:")), #top/large header
   h4(p(
   p(
-  "1. How does gender impact the adverse effects of the vaccine?"), br(),
+  "1. How does gender impact the adverse effects of the vaccine?"), br(), #question 1, break
   p(
-  "2. How do the adverse effects of the vaccine differ by age?"), br(),
+  "2. How do the adverse effects of the vaccine differ by age?"), br(), #question 2, break
   p(
-  "3. How do the adverse effects of the vaccine differ by location?"), br(),
+  "3. How do the adverse effects of the vaccine differ by location?"), br(), #question 3, break
   p(
     "To answer these questions, we will be using the VAERSDATASET from Kaggle",
 ))))

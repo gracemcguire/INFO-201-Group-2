@@ -1,6 +1,6 @@
 # app_server.R
 server <- function(input, output) {
-  # first plot
+  # FIRST PAGE/PLOT
   output$bar_chart <- renderPlot({
     # manipulate data
     plot_data <- vaers %>%
@@ -22,6 +22,7 @@ server <- function(input, output) {
     return(plot1)
   })
   
+  #SECOND PAGE/PLOT
   output$scatter_plot <- renderPlotly({
     # manipulate data
     plot_data <- vaers %>%
