@@ -1,6 +1,9 @@
 library("shiny")
 library("plotly")
 library("leaflet")
+library("magick")
+
+
 
 # load the ui and server
 source("myui.R")
