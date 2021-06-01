@@ -15,7 +15,8 @@ state_check <- checkboxGroupInput(inputId = "States",
 # Data for second widget
 grouped_data <- vaers %>%
   group_by(STATE) %>%
-  dplyr::summarize(count = n()) %>%
+  dplyr::summarize(count = n())
+
 count_range <- range(grouped_data$count)
 
 # Second widget sliderInput

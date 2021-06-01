@@ -2,7 +2,7 @@ library("shiny")
 library("plotly")
 library("leaflet")
 library("magick")
-
+library("dplyr")
 
 
 # load the ui and server
