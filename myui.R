@@ -102,17 +102,17 @@ introduction_page <- tabPanel(
 
 ui <- fluidPage(tabsetPanel(
   introduction_page,
-  tabPanel("Page 1",
+  tabPanel("Adverse Effects of COVID Vaccine by Location",
            sidebarLayout(sidebarPanel(state_check,
             count_slider,
             p("asd")),
                          mainPanel(plotlyOutput("bar_chart")))),
-  tabPanel("Page 2",
+  tabPanel("Adverse Effects of COVID by Age",
            sidebarLayout(sidebarPanel(state_age,
             age_slider,
             p("asda")),
                          mainPanel(plotlyOutput("scatter_plot")))),
-  tabPanel("Page 3",
+  tabPanel("Adverse Effects of COVID by Gender",
            sidebarLayout(gender_affected, pie_chart))
 
 ))
