@@ -25,18 +25,18 @@ server <- function(input, output) {
          ylab = "Deaths") +
       theme(title = element_text(size = 16)) +
       scale_fill_brewer("State", palette = "Set3")
-    
+
     plot1 <- ggplotly(plot1)
     return(plot1)
   })
-  
+
   #SECOND PAGE/PLOT
   output$scatter_plot <- renderPlotly({
     # manipulate data
     plot_data <- vaers %>%
       filter(STATE %in% input$Age,
              AGE_YRS <= input$age_affected)
-    
+
     # Use plotly to plot scatter plot
     plot2 <- plot_ly(plot_data,
                      x = ~AGE_YRS,
@@ -51,12 +51,12 @@ server <- function(input, output) {
                                    "<b>State:</b>",
                                    plot_data$STATE),
                      hoverinfo = "text") %>%
-      
+
       # title and axes label
       layout(title = "Ages Affected in each State Due to COVID",
              xaxis = list(title = "Ages of those Affected by COVID:"),
              yaxis = list(title = "Location of Ages Affected:"))
-    
+
     plot2 <- ggplotly(plot2)
     return(plot2)
   })
@@ -64,27 +64,3 @@ server <- function(input, output) {
     return(chart_2(vaers, input$x))
   })
 }
-
-# server <- function(input, output) {
-#   output$message <- renderText({
-#     msg <- paste0("You've chosen option #", input$radioInput,
-#            ". You've entered the following text: ", input$textInput)
-#     return(msg)
-#   })
-# }
-# 
-# chart_2 <- function(ds) {
-#   df <- ds %>%
-#     group_by(SEX) %>%
-#     summarise(total = n())
-#   
-#   bp <- ggplot(df, aes(x = "", y = total, fill = SEX)) +
-#     geom_bar(width = 1, stat = "identity") +
-#     ggtitle("Adverse COVID-19 Vaccine Effects by Sex")
-#   
-#   pie <- bp + coord_polar("y", start = 0) +
-#     theme_void()
-#   
-#   return(pie)
-# }
-

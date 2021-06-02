@@ -18,6 +18,3 @@ chart_2 <- function(ds, sex) {
 
   return(bp)
 }
-
-a <- chart_2(vaers, "M")
-a
