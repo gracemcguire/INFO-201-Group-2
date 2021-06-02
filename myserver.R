@@ -1,7 +1,13 @@
+vaers <- read.csv("data/2021VAERSDATA.csv")
+library("plotly")
+library("dplyr")
+library("ggplot2")
+source("scripts/chart_2.R")
+
 # app_server.R
 server <- function(input, output) {
   # FIRST PAGE/PLOT
-  output$bar_chart <- renderPlot({
+  output$bar_chart <- renderPlotly({
     # manipulate data
     plot_data <- vaers %>%
       group_by(STATE) %>%
@@ -19,6 +25,8 @@ server <- function(input, output) {
          ylab = "Deaths") +
       theme(title = element_text(size = 16)) +
       scale_fill_brewer("State", palette = "Set3")
+    
+    plot1 <- ggplotly(plot1)
     return(plot1)
   })
   
@@ -49,7 +57,11 @@ server <- function(input, output) {
              xaxis = list(title = "Ages of those Affected by COVID:"),
              yaxis = list(title = "Location of Ages Affected:"))
     
+    plot2 <- ggplotly(plot2)
     return(plot2)
+  })
+  output$pie <- renderPlotly({
+    return(chart_2(vaers, input$x))
   })
 }
 

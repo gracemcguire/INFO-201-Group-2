@@ -45,9 +45,24 @@ age_slider <- sliderInput(inputId = "age_affected",
                           value = age_range[2],
                           step = 1)
 
+a <- sidebarPanel(
+  selectInput(
+    "x",
+    label = "jsjsjs",
+    choices = list("Male" = "M", "Female" = "F", "Unknown" = "U", "All"),
+    selected = "All"
+  ),
+  p("sadasjndasndsajndajd")
+)
+
+s <- mainPanel(
+  plotlyOutput("pie")
+)
+
+
 introduction_page <- tabPanel(
   ("Introduction"), #title of page/tab
-  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 700, height = 650), #image insertion & scale
+  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 800, height = 550), #image insertion & scale
   h2(p("Authors: Daniel Choi, Grace McGuire, Renee Wong, Nathaniel Lee")), #adds authors
   h2(p("This project explores how age, gender, and location have impacted the way that American's have been experiencing adverse effects caused by the COVID-19 vaccine.")),
   h3(p("The questions we hope to answer are:")), #top/large header
@@ -62,53 +77,16 @@ introduction_page <- tabPanel(
     "To answer these questions, we will be using the VAERSDATASET from Kaggle",
 ))))
 
-# page_one <- tabPanel(
-#   "Bar Chart", # label for the tab in the navbar
-#   titlePanel("Page 1"), # show with a displayed title
-#   
-#   # This content uses a sidebar layout
-#   sidebarLayout(
-#     sidebarPanel(
-#       textInput(inputId = "username", label = "What is your name?")
-#     ),
-#     mainPanel(
-#       h3("Primary Content"),
-#       p("Plots, data tables, etc. would go here")
-#     )
-#   )
-# )
-# 
-# # Define content for the second page
-# page_two <- tabPanel(
-#   "Pie chart", # label for the tab in the navbar
-#   ui <- fluidPage(
-#     h1("Demo Page"),
-#     p(
-#       "this is a paragraph with",
-#       strong("bold"),
-#       "text."
-#     )
-#   )
-# )
-# 
-# # Define content for the third page
-# page_three <- tabPanel(
-#   "Scatterplot" # label for the tab in the navbar
-#   # ...more content would go here...
-# )
-# 
-# summary_page <- tabPanel(
-#   "Summary Page" # label for the tab in the navbar
-#   # ...more content would go here...
-# )
-
-# Pass each page to a multi-page layout (`fluidPage`)
 ui <- fluidPage(tabsetPanel(
+  introduction_page,
   tabPanel("Page 1",
            sidebarLayout(sidebarPanel(state_check,
-                                      count_slider), mainPanel(plotOutput(bar_chart)))),
+                                      count_slider), mainPanel(plotlyOutput("bar_chart")))),
   tabPanel("Page 2",
            sidebarLayout(sidebarPanel(state_age,
-                                      age_slider), mainPanel(plotOutput(scatter_plot))))
+                                      age_slider), mainPanel(plotlyOutput("scatter_plot")))),
+  tabPanel("Page 3",
+           sidebarLayout(a, s))
+  
 ))
 
