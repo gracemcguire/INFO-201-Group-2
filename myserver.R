@@ -53,8 +53,8 @@ server <- function(input, output) {
                      hoverinfo = "text") %>%
 
       # title and axes label
-      layout(title = "Ages Affected in each State Due to COVID",
-             xaxis = list(title = "Ages of those Affected by COVID:"),
+      layout(title = "Ages Affected in each State Due to the Vaccine",
+             xaxis = list(title = "Ages of those Affected by the Vaccine:"),
              yaxis = list(title = "Location of Ages Affected:"))
 
     plot2 <- ggplotly(plot2)

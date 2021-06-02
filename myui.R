@@ -53,10 +53,10 @@ gender_affected <- sidebarPanel(
     selected = "All"
   ),
   p(
-  "This Bar Chart shows the number of people affected due to COVID.
-    The gender most affected are by order in: Female, Male, and then Unknown.
-    This drop down also gives access to view the individual genders, including
-    the respective Population and Gender of each group."
+  "This Bar Chart shows the number of people affected due to the COVID vaccine.
+    From most to least affected, the genders go by Female, Male, and then
+    Unknown. This drop down also gives access to view the individual genders,
+    including the respective Population and Gender of each group."
   )
 )
 
@@ -102,17 +102,33 @@ introduction_page <- tabPanel(
 
 ui <- fluidPage(tabsetPanel(
   introduction_page,
-  tabPanel("Adverse Effects of COVID Vaccine by Location",
+  tabPanel("Adverse Effects of the COVID Vaccine by Location",
            sidebarLayout(sidebarPanel(state_check,
             count_slider,
             p("asd")),
                          mainPanel(plotlyOutput("bar_chart")))),
-  tabPanel("Adverse Effects of COVID by Age",
+  tabPanel("Adverse Effects of the COVID Vaccine by Age",
            sidebarLayout(sidebarPanel(state_age,
             age_slider,
-            p("asda")),
+            p("This scatter plot represents the age of each person who reported
+              adverse effects of the COVID vaccine. The ages are categorized by
+              the state from which the person lives. The color of each dot on
+              the scatter plot represents the person’s gender (male, female, or
+              unknown). On the side, each state can be selected or deselected in
+              order to focus on specific states. There is also a slide that can
+              change the range of the x-axis (which represents age) on the plot.
+              The point of this scatter plot is to answer the question of how
+              the adverse effects of the vaccine differ by age. Based on the
+              scatter plot, adverse effects seem to be rare in children. The
+              dots become more concentrated after the age of 15. Until the age
+              of 90, this concentration remains consistent, revealing that
+              adverse effects are much more common between the ages of 15 and
+              90. AFter that, the concentration disperses and less dots are
+              found, though this can be attributed to life expectancy; since on
+              average most people do not live past 80 years old, it would make
+              sense that there would be less data at such high ages.")),
                          mainPanel(plotlyOutput("scatter_plot")))),
-  tabPanel("Adverse Effects of COVID by Gender",
+  tabPanel("Adverse Effects of the COVID Vaccine by Gender",
            sidebarLayout(gender_affected, pie_chart))
 
 ))
