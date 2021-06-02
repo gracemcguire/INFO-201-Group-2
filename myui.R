@@ -104,13 +104,15 @@ ui <- fluidPage(tabsetPanel(
   introduction_page,
   tabPanel("Page 1",
            sidebarLayout(sidebarPanel(state_check,
-                                      count_slider),
+            count_slider,
+            p("asd")),
                          mainPanel(plotlyOutput("bar_chart")))),
   tabPanel("Page 2",
            sidebarLayout(sidebarPanel(state_age,
-                                      age_slider),
+            age_slider,
+            p("asda")),
                          mainPanel(plotlyOutput("scatter_plot")))),
   tabPanel("Page 3",
-           sidebarLayout(a, s))
+           sidebarLayout(gender_affected, pie_chart))
 
 ))
