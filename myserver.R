@@ -51,8 +51,8 @@ server <- function(input, output) {
 
       # title and axes label
       layout(title = "Ages Affected in each State Due to the COVID Vaccine",
-             xaxis = list(title = "Ages of those Affected by the COVID Vaccine:"),
-             yaxis = list(title = "Location of Ages Affected:"))
+          xaxis = list(title = "Ages of those Affected by the COVID Vaccine:"),
+          yaxis = list(title = "Location of Ages Affected:"))
 
     plot2 <- ggplotly(plot2)
     return(plot2)
