@@ -73,7 +73,7 @@ introduction_page <- tabPanel(
 
   sidebarLayout(
     sidebarPanel(
-  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 250, height = 230
+  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 400, height = 330
       )), #image insertion & scale
 
   mainPanel(
