@@ -53,8 +53,8 @@ gender_affected <- sidebarPanel(
     selected = "All"
   ),
   p(
-  "This Bar Chart shows the number of people affected due to the COVID vaccine.
-    From most to least affected, the genders go by Female, Male, and then
+  "This Bar Chart shows the number of people affected due to the COVID
+  vaccine.From most to least affected, the genders go by Female, Male, and then
     Unknown. This drop down also gives access to view the individual genders,
     including the respective Population and Gender of each group."
   )
@@ -88,17 +88,17 @@ introduction_page <- tabPanel(
     "To answer these questions, we will be using the VAERSDATASET from Kaggle"),
   br(),
   p(
-    "To answer these 3 quesitons, we will be using a Bar chart for the first
-    interactive page, which answers our first question of how the adverse
+    "To answer these 3 questions, we will be using a Bar chart for the
+    first interactive page, which answers our first question of how the adverse
     effects of the COVID vaccine affects individuals by location.
     For the second question,we decided that a scatter plot would be best, to
     answer the second question as we chose to find the adverse effects of the
     COVID vaccine by age. For our last question, we decided that a Bar chart
     that contains all the genders would give an accurate representations of the
     distribution of individuals who were impacted by the adverse effects of the
-    COVID vaccine."
-  )
-)))
+    COVID vaccine. The source of this data set can be found", tags$a(href = "https://www.kaggle.com/ayushggarg/covid19-vaccine-adverse-reactions?fbclid=IwAR2aQKWsmC7TMTk3TJ-hVX0Hnpl-ajPINOqKOU5wcDmxsgx8EeQXzIQ8smw", "here!")
+    ))
+))
 
 ui <- fluidPage(tabsetPanel(
   introduction_page,
@@ -129,6 +129,9 @@ ui <- fluidPage(tabsetPanel(
               sense that there would be less data at such high ages.")),
                          mainPanel(plotlyOutput("scatter_plot")))),
   tabPanel("Adverse Effects of the COVID Vaccine by Gender",
-           sidebarLayout(gender_affected, pie_chart))
+           sidebarLayout(gender_affected, pie_chart)),
+  tabPanel("Conclusion Insights of Adverse Effects of COVID",
+           p("lkadmkadmlksd
+             "))
 
 ))

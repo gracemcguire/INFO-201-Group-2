@@ -19,7 +19,7 @@ server <- function(input, output) {
     plot1 <- ggplot(plot_data) +
       geom_col(mapping = aes(x = count,
                              y = STATE,
-                             fill = STATE))
+                             fill = Location))
     labs(title = "Number of Deaths in each State",
          xlab = "State",
          ylab = "Deaths") +
