@@ -102,12 +102,12 @@ introduction_page <- tabPanel(
 
 ui <- fluidPage(tabsetPanel(
   introduction_page,
-  tabPanel("Adverse Effects of the COVID Vaccine by Location",
+  tabPanel("Death Due to COVID by Location",
            sidebarLayout(sidebarPanel(state_check,
             count_slider,
             p("asd")),
                          mainPanel(plotlyOutput("bar_chart")))),
-  tabPanel("Adverse Effects of the COVID Vaccine by Age",
+  tabPanel("Age Distribution of Those Affected by COVID",
            sidebarLayout(sidebarPanel(state_age,
             age_slider,
             p("This scatter plot represents the age of each person who reported
@@ -128,7 +128,7 @@ ui <- fluidPage(tabsetPanel(
               average most people do not live past 80 years old, it would make
               sense that there would be less data at such high ages.")),
                          mainPanel(plotlyOutput("scatter_plot")))),
-  tabPanel("Adverse Effects of the COVID Vaccine by Gender",
+  tabPanel("Gender Distribution of Those Affected by COVID",
            sidebarLayout(gender_affected, pie_chart)),
   tabPanel("Conclusion Insights of Adverse Effects of COVID",
            p("lkadmkadmlksd
