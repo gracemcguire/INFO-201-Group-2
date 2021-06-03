@@ -54,9 +54,9 @@ gender_affected <- sidebarPanel(
   ),
   p(
   "This Bar Chart shows the number of people affected due to the COVID
-  vaccine. From most to least affected, the genders go by Female, Male, and then
-    Unknown. This drop down also gives access to view the individual genders,
-    including the respective Population and Gender of each group."
+  vaccine ordered from most to least affected. The genders are listed: Female, Male, and
+    Unknown. The drop down menu gives access to view the individual genders,
+    including the respective population and gender of each group."
   )
 )
 
@@ -64,40 +64,47 @@ pie_chart <- mainPanel(
   plotlyOutput("pie")
 )
 
-
 introduction_page <- tabPanel(
-  ("Introduction"), #title of page/tab
-  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 800, height = 550), #image insertion & scale
+  "Introduction", #title of page/tab
+  
+  sidebarLayout(
+    sidebarPanel(
+  img(src = "https://city.milwaukee.gov/ImageLibrary/MKE-Health1/COVID-19/Images/imgCoronavirus.jpg", width = 500, height = 250
+      )), #image insertion & scale
+  
+  mainPanel(
   h2(p("Authors: Daniel Choi, Grace McGuire, Renee Wong, Nathaniel Lee")),
   #adds authors
   h4(p("This project explores how age, gender, and location have impacted the
-       way that American's have been experiencing adverse effects caused by
+       way that American's have been experiencing adverse reactions caused by
        the COVID-19 vaccine.")),
   h5(p("The questions we hope to answer are:")), #top/large header
   h6(p(
   p(
-  "1. How do the adverse effects of the vaccine differ by location?"), br(),
+  "1. Is one region of the United States impacted more heavily by adverse reactions to the COVID-19 vaccine?"), br(),
   #question 1, break
   p(
-  "2. How do the adverse effects of the vaccine differ by age?"), br(),
+  "2. How do the adverse reactions to the COVID-19 vaccine differ by age group?"), br(),
   #question 2, break
   p(
-  "3. How does gender impact the adverse effects of the vaccine?"), br(),
+  "3. How does gender impact the adverse reactions to the COVID-19 vaccine?"), br(),
   #question 3, break
   p(
-    "To answer these questions, we will be using the VAERSDATASET from Kaggle"),
+    "To answer these questions, we will be using the VAERSDATASET, COVID-19 World Vaccine Adverse Reactions, from Kaggle."),
   br(),
   p(
-    "To answer these 3 questions, we will be using a Bar chart for the
-    first interactive page, which answers our first question of how the adverse
-    effects of the COVID vaccine affects individuals by location.
-    For the second question,we decided that a scatter plot would be best, to
-    answer the second question as we chose to find the adverse effects of the
-    COVID vaccine by age. For our last question, we decided that a Bar chart
+    "In order to analyze these 3 questions, we used a bar chart for the
+    first interactive page, which investigates our first question of how the adverse
+    reactions to the COVID-19 vaccine affects individuals by location.
+    For the second question, we decided that a scatter plot would best
+    answer and display the answer to the second question as we chose to find the adverse reactions to the
+    COVID-19 vaccine by age. For our final question, we decided that a bar chart
     that contains all the genders would give an accurate representations of the
-    distribution of individuals who were impacted by the adverse effects of the
-    COVID vaccine. The source of this data set can be found", tags$a(href = "https://www.kaggle.com/ayushggarg/covid19-vaccine-adverse-reactions?fbclid=IwAR2aQKWsmC7TMTk3TJ-hVX0Hnpl-ajPINOqKOU5wcDmxsgx8EeQXzIQ8smw", "here!")
+    distribution of individuals who were impacted by the adverse reactions to the
+    COVID-19 vaccine. The source of this data set can be found", tags$a(href = "https://www.kaggle.com/ayushggarg/covid19-vaccine-adverse-reactions?fbclid=IwAR2aQKWsmC7TMTk3TJ-hVX0Hnpl-ajPINOqKOU5wcDmxsgx8EeQXzIQ8smw", "here!")
     ))
+))
+
 ))
 
 ui <- fluidPage(tabsetPanel(
@@ -106,32 +113,39 @@ ui <- fluidPage(tabsetPanel(
            sidebarLayout(sidebarPanel(state_check,
             count_slider,
             p("asd")),
-                         mainPanel(plotlyOutput("bar_chart")))),
-  tabPanel("Age Distribution of Those Affected by COVID",
+            mainPanel(plotlyOutput("bar_chart")))),
+  tabPanel("Adverse Reactions by Age",
            sidebarLayout(sidebarPanel(state_age,
             age_slider,
-            p("This scatter plot represents the age of each person who reported
-              adverse effects of the COVID vaccine. The ages are categorized by
+            p("This scatter plot represents the age of each individual who reported
+              adverse reactions to the COVID-19 vaccine. The ages are categorized by
               the state from which the person lives. The color of each dot on
               the scatter plot represents the person’s gender (male, female, or
               unknown). On the side, each state can be selected or deselected in
-              order to focus on specific states. There is also a slide that can
+              order to focus on states of interest. There is also a slide that can
               change the range of the x-axis (which represents age) on the plot.
-              The point of this scatter plot is to answer the question of how
-              the adverse effects of the vaccine differ by age. Based on the
-              scatter plot, adverse effects seem to be rare in children. The
+              The goal of the scatter plot is to answer the question of how
+              the adverse reactions to the vaccine differ by age. Based on the
+              scatter plot, adverse reactions seem to be rare in children. The
               dots become more concentrated after the age of 15. Until the age
               of 90, this concentration remains consistent, revealing that
-              adverse effects are much more common between the ages of 15 and
+              adverse reactions are much more common between the ages of 15 and
               90. AFter that, the concentration disperses and less dots are
               found, though this can be attributed to life expectancy; since on
               average most people do not live past 80 years old, it would make
               sense that there would be less data at such high ages.")),
                          mainPanel(plotlyOutput("scatter_plot")))),
-  tabPanel("Gender Distribution of Those Affected by COVID",
+  tabPanel("Adverse Reactions by Gender",
            sidebarLayout(gender_affected, pie_chart)),
-  tabPanel("Conclusion Insights of Adverse Effects of COVID",
-           p("lkadmkadmlksd
-             "))
+  tabPanel("Key Takeaways",
+          p(h3("Takeaway #1")),
+          p(h4("1. Is one region of the United States impacted more heavily by adverse reactions to the COVID-19 vaccine?")),
+          p(h6("As demonstrated in the Number of Deaths in Each State plot, California, Texas, and New York have much higher rates of death than the rest of the United States. A potential answer to why this may be is because CA, TX, and NY are much more populous than most states, meaning that their vaccination rates are higher, thus having higher chances of adverse reactions to the vaccine.")), br(),
+          p(h3("Takeaway #2")),
+          p(h4("2. How do the adverse reactions to the COVID-19 vaccine differ by age group?")),
+          p(h6("The Ages Effected in Each State Due to COVID Vaccine plot indicates that between ages 20 and 90 the adverse reactions to the COVID-19 vaccine occur fairly evenly, while above and below that age range, the occurences of adverse events are very sparse.")), br(),
+          p(h3("Takeaway #3")),
+          p(h4("3. How does gender impact the adverse reactions to the COVID-19 vaccine?")),
+          p(h6("The Adverse COVID-19 Vaccine Effect by Gender plot clearly shows that females have been hit much harder by adverse events than males have been.")), br(),
 
-))
+)))
