@@ -12,7 +12,8 @@ chart_2 <- function(ds, sex) {
   }
   bp <- ggplot(df, aes(x = "", y = total, fill = SEX)) +
     geom_bar(width = 1, stat = "identity") +
-    ggtitle("Adverse COVID-19 Vaccine Effects by Sex")
+    ggtitle("Adverse COVID-19 Vaccine Effects by Sex") +
+    labs(y = "Total Individuals", x = "")
 
   bp <- ggplotly(bp)
 

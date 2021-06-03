@@ -54,7 +54,7 @@ gender_affected <- sidebarPanel(
   ),
   p(
   "This Bar Chart shows the number of people affected due to the COVID
-  vaccine.From most to least affected, the genders go by Female, Male, and then
+  vaccine. From most to least affected, the genders go by Female, Male, and then
     Unknown. This drop down also gives access to view the individual genders,
     including the respective Population and Gender of each group."
   )

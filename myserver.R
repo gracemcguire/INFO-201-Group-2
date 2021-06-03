@@ -16,17 +16,14 @@ server <- function(input, output) {
       filter(count <= input$State_count[2],
              count >= input$State_count[1])
     # bar chart
-    plot1 <- ggplot(plot_data) +
-      geom_col(mapping = aes(x = count,
-                             y = STATE,
-                             fill = STATE))
-    labs(title = "Number of Deaths in each State",
-         xlab = "State",
-         ylab = "Deaths") +
-      theme(title = element_text(size = 16)) +
-      scale_fill_brewer("State", palette = "Set3")
-
-    plot1 <- ggplotly(plot1)
+    plot1 <- plot_ly(data = plot_data, x = ~count, y = ~STATE,
+                     name = "Number of Deaths in each State", type = "bar",
+                     text = ~paste("<b>Death:</b>", plot_data$count, "<br>",
+                                   "<b>State:</b>", plot_data$STATE),
+                     hoverinfo = "text") %>%
+      layout(title = "Number of Deaths in each State",
+             xaxis = list(title = "Deaths"), xaxis = list(title = "sex"),
+             yaxis = list(title = "State"))
     return(plot1)
   })
 
@@ -53,8 +50,8 @@ server <- function(input, output) {
                      hoverinfo = "text") %>%
 
       # title and axes label
-      layout(title = "Ages Affected in each State Due to the Vaccine",
-             xaxis = list(title = "Ages of those Affected by the Vaccine:"),
+      layout(title = "Ages Affected in each State Due to the COVID Vaccine",
+             xaxis = list(title = "Ages of those Affected by the COVID Vaccine:"),
              yaxis = list(title = "Location of Ages Affected:"))
 
     plot2 <- ggplotly(plot2)
