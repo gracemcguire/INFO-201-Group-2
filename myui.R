@@ -112,8 +112,18 @@ ui <- fluidPage(tabsetPanel(
   tabPanel("Death Due to COVID by Location",
            sidebarLayout(sidebarPanel(state_check,
             count_slider,
-            p("asd")),
-            mainPanel(plotlyOutput("bar_chart")))),
+            p("The first bar graph displays the number of people reporting adverse 
+              vaccine effects in different states. This answers our question of 
+              how the adverse effects of the vaccine differ by the location. In 
+              addition, each state can be selected or deselected for focusing on 
+              a the selected states. The slide above can change the range of the 
+              x-axis representing the number of cases on the plot. From the graph, 
+              it can be inferred that states including California, New York, Florida, 
+              and Texas have higher rates of adverse vaccine affects, for they have 
+              higher number of COVID-19 cases. In comparison, states such as Wyoming 
+              and Virginia have a low number of cases, meaning that the adversed 
+              effects may be lower. ")),
+                          mainPanel(plotlyOutput("bar_chart")))),
   tabPanel("Adverse Reactions by Age",
            sidebarLayout(sidebarPanel(state_age,
             age_slider,
@@ -137,6 +147,7 @@ ui <- fluidPage(tabsetPanel(
                          mainPanel(plotlyOutput("scatter_plot")))),
   tabPanel("Adverse Reactions by Gender",
            sidebarLayout(gender_affected, pie_chart)),
+          
   tabPanel("Key Takeaways",
           p(h3("Takeaway #1")),
           p(h4("1. Is one region of the United States impacted more heavily by adverse reactions to the COVID-19 vaccine?")),
