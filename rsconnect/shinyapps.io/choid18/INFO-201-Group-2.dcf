@@ -5,9 +5,9 @@ account: choid18
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4220740
-bundleId: 4670861
+bundleId: 4670879
 url: https://choid18.shinyapps.io/INFO-201-Group-2/
-when: 1622679901.37734
-lastSyncTime: 1622679901.37741
+when: 1622680375.28109
+lastSyncTime: 1622680375.28116
 asMultiple: FALSE
 asStatic: FALSE
